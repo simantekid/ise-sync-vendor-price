@@ -87,6 +87,8 @@ export class AppService {
       if (error.response) {
         console.log(error.response.data);
         throw new HttpException(error.response.data.message, 500);
+      }else{
+        console.log(error);
       }
     }
 
