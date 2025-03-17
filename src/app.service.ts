@@ -71,8 +71,11 @@ export class AppService {
           console.log('Update Produk Terminal');
           prodterminal.hargabeli = resp.data[i].harga;
           await this.produkTerminalRepository.save(prodterminal);
+          console.log('Update harga priceplan '+prodterminal.produk.id + ' '+ prodterminal.produk.kodeproduk);
           let updated = await this.detailPricePlanRepository.update({
-            produk: prodterminal.produk
+            produk: {
+              id: prodterminal.produk.id
+            }
           },
             { hargajual: resp.data[i].harga }
           );
