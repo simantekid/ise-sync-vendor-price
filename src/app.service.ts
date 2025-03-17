@@ -66,6 +66,7 @@ export class AppService {
             terminal: terminal,
             kodesuplier: resp.data[i].kode,
           },
+          relations: ['produk'],
         });
         if (prodterminal) {
           console.log('Update Produk Terminal');
